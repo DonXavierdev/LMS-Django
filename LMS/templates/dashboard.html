@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+<ul>
+    <li><a href="{% url 'course_list' %}">Search Courses</a></li>
+    
+</ul>
+
+
+<div>
+    <h3>Announcements</h3>
+    <!-- Example of displaying course overview; this would typically be dynamically generated -->
+    <ul>
+        <li>Math 101: Introduction to Algebra</li>
+        <li>History 202: Modern History</li>
+        <li>Science 303: Physics Basics</li>
+    </ul>
+</div>
+{% endblock %}

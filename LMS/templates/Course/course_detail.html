@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+
+<h2>Sections</h2>
+<ul>
+    {% for section in sections %}
+        <li>
+            <button class="btn btn-primary mb-3" type="button" data-toggle="collapse" data-target="#section{{ section.pk }}" aria-expanded="false" aria-controls="section{{ section.pk }}">
+                {{ section.title }}
+            </button>
+            <div class="collapse" id="section{{ section.pk }}">
+                <div class="card card-body">
+                    <p>{{ section.description }}</p>                    
+                    <iframe src="{% static section.video %}"  width="400px" height="300px" frameborder="0"></iframe>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'course_list' %}" class="btn btn-primary my-button">Back to Course List</a>
+{% endblock %}
